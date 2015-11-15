@@ -165,7 +165,7 @@ class IPLookup(callbacks.Plugin):
         Use a GeoIP API to lookup the location of an IP.
         """
 
-        url = 'http://www.telize.com/geoip/%s' % (optip)
+        url = 'http://www.ip-api.com/json/%s' % (optip)
         html = self._httpget(url)
         if not html:  # http fetch breaks.
             irc.reply("ERROR: Trying to open: {0}".format(url))
