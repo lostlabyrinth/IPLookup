@@ -178,11 +178,11 @@ class IPLookup(callbacks.Plugin):
 
         isp = jsondata.get('isp')
 	city = jsondata.get('city')
-        country_code = jsondata.get('country_code')
+        country_code = jsondata.get('countryCode')
         region = jsondata.get('region')
-        longitude = jsondata.get('longitude')
-        latitude = jsondata.get('latitude')
-        ip = jsondata.get('ip')
+        longitude = jsondata.get('lon')
+        latitude = jsondata.get('lat')
+        ip = jsondata.get('query')
 
         if ip:
             output = "IP: {0} | ISP: {1} | City: {2} | Region: {3}, {4} | Longitude: {5} | Latitude: {6}".format(self._bu(ip), isp, city, region, country_code, longitude, latitude)
