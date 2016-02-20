@@ -179,7 +179,7 @@ class IPLookup(callbacks.Plugin):
         isp = jsondata.get('isp')
 	city = jsondata.get('city')
         country_code = jsondata.get('countryCode')
-        region = jsondata.get('region')
+        regionName = jsondata.get('regionName')
         longitude = jsondata.get('lon')
         latitude = jsondata.get('lat')
         ip = jsondata.get('query')
