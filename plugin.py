@@ -31,8 +31,6 @@ from __future__ import print_function, unicode_literals
 from __future__ import absolute_import, division
 
 # my libs
-from lxml import etree
-from bs4 import BeautifulSoup
 import sys
 if sys.version_info[0] > 2:
     import urllib.request, urllib.error, urllib.parse
@@ -41,10 +39,6 @@ else:  # python2.
 from random import choice
 import json
 import re
-import xml.dom.minidom
-import feedparser
-import base64
-#import socket
 import random
 try:
     import xml.etree.cElementTree as ElementTree
@@ -72,29 +66,6 @@ class IPLookup(callbacks.Plugin):
     def _rainbow(self, text):
         text = ''.join([ircutils.mircColor(x, choice(list(ircutils.mircColors.keys()))) for x in text])
         return text
-
-    def _red(self, string):
-        return ircutils.mircColor(string, 'red')
-
-    def _yellow(self, string):
-        """Returns a yellow string."""
-        return ircutils.mircColor(string, 'yellow')
-
-    def _green(self, string):
-        """Returns a green string."""
-        return ircutils.mircColor(string, 'green')
-
-    def _blue(self, string):
-        """Returns a blue string."""
-        return ircutils.mircColor(string, 'blue')
-
-    def _lightblue(self, string):
-        """Returns a light blue string."""
-        return ircutils.mircColor(string, 'light blue')
-
-    def _orange(self, string):
-        """Returns an orange string."""
-        return ircutils.mircColor(string, 'orange')
 
     def _bold(self, string):
         """Returns a bold string."""
