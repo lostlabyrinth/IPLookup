@@ -136,7 +136,7 @@ class IPLookup(callbacks.Plugin):
         Use a GeoIP API to lookup the location of an IP.
         """
 
-        url = 'http://www.ip-api.com/json/%s' % (optip)
+        url = 'http://www.ip-api.com/json/%s?fields=192511' % (optip)
         html = self._httpget(url)
         if not html:  # http fetch breaks.
             irc.reply("ERROR: Trying to open: {0}".format(url))
@@ -154,9 +154,10 @@ class IPLookup(callbacks.Plugin):
         longitude = jsondata.get('lon')
         latitude = jsondata.get('lat')
         ip = jsondata.get('query')
+        proxy = jsondata.get('proxy')
 
         if ip:
-            output = "IP: {0} | ISP: {1} | City: {2} | Region: {3}, {4} | Longitude: {5} | Latitude: {6}".format(self._bu(ip), isp, city, region, country_code, longitude, latitude)
+            output = "IP: {0} | ISP: {1} | City: {2} | Region: {3}, {4} | Longitude: {5} | Latitude: {6} | Proxy Server?: {7}".format(self._bu(ip), isp, city, region, country_code, longitude, latitude, proxy)
             irc.reply(output)
         else:
             irc.reply("ERROR :: looking up '{0}' at {1}".format(optip, url))
